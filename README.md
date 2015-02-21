@@ -24,7 +24,7 @@ vagrant box add ubuntu-14-04-x64-virtualbox.box --name ubuntu-1404
 use Ansible.
 
 ```sh
-sudo apt-get install python-pip sshpass
+sudo apt install python-pip sshpass
 sudo pip install ansible
 vagrant up
 ```

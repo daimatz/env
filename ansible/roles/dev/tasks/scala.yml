@@ -1,0 +1,15 @@
+---
+- include: java.yml
+
+- name: download scala deb
+  get_url: url={{ scala_url }} dest={{ ansible_env.HOME }}/{{ scala_source }}
+
+- name: download sbt deb
+  get_url: url={{ sbt_url }} dest={{ ansible_env.HOME }}/{{ sbt_source }}
+
+- name: install deb files
+  apt: deb={{ ansible_env.HOME }}/{{ item }}
+  sudo: true
+  with_items:
+    - "{{ scala_source }}"
+    - "{{ sbt_source }}"

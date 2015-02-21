@@ -17,3 +17,4 @@
 
 - include: golang.yml
 - include: ruby.yml
+- include: scala.yml

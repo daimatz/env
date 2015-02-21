@@ -1,0 +1,8 @@
+---
+- name: add apt repository
+  apt_repository: repo=ppa:openjdk-r/ppa
+  sudo: true
+
+- name: install openjdk
+  apt: pkg=openjdk-{{ openjdk_version }}-jdk state=present
+  sudo: true
