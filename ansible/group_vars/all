@@ -1,5 +1,7 @@
 ---
+# vim: set ft=yaml
 
+# for Go
 golang_version: 1.4.2
 golang_source: "go{{ golang_version }}.linux-amd64.tar.gz"
 golang_url: "http://golang.org/dl/{{ golang_source }}"
