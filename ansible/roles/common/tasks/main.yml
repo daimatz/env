@@ -29,10 +29,10 @@
     - zsh
 
 - name: link diff-highlight
-  file: src=/usr/share/git/diff-highlight/diff-highlight dest=/usr/bin/diff-highlight state=link force=true
+  file: src=/usr/share/doc/git/contrib/diff-highlight/diff-highlight dest=/usr/bin/diff-highlight state=link force=true mode=0755
 
 - name: link git-new-workdir
-  file: src=/usr/share/git/workdir/git-new-workdir path=/usr/bin/git-new-workdir state=link force=true
+  file: src=/usr/share/doc/git/contrib/workdir/git-new-workdir path=/usr/bin/git-new-workdir state=link force=true mode=0755
 
 - name: locale
   command: update-locale LANG=ja_JP.UTF-8
