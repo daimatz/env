@@ -15,8 +15,8 @@
 - name: rename intellij directory
   command: find {{ ansible_env.HOME }} -maxdepth 1 -type d -name "idea-IC-*" -exec mv {} {{ ansible_env.HOME }}/intellij \; creates={{ ansible_env.HOME }}/intellij
 
-- name: make Desktop directory
-  file: path="{{ ansible_env.HOME }}/デスクトップ" state=directory
-
-- name: copy icon
-  template: src=IntelliJ.desktop dest="{{ ansible_env.HOME }}/デスクトップ/IntelliJ.desktop"
+# - name: make Desktop directory
+#   file: path="{{ ansible_env.HOME }}/デスクトップ" state=directory
+#
+# - name: copy icon
+#   template: src=IntelliJ.desktop dest="{{ ansible_env.HOME }}/デスクトップ/IntelliJ.desktop"
