@@ -14,3 +14,5 @@
 
 - name: copy .zshrc
   template: src=dot.zshrc dest="{{ ansible_env.HOME }}/.zshrc"
+
+- include: golang.yml
