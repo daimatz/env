@@ -12,9 +12,13 @@
   user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
   sudo: true
 
+- name: copy .ntpd.sh
+  template: src=dot.ntpd.sh dest="{{ ansible_env.HOME }}/.ntpd.sh"
+
 - name: copy .zshrc
   template: src=dot.zshrc dest="{{ ansible_env.HOME }}/.zshrc"
 
 - include: golang.yml
 - include: ruby.yml
 - include: scala.yml
+- include: intellij.yml

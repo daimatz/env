@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=IntelliJ
+Comment=
+Exec=~/intellij/bin/idea.sh
+Icon=~/intellij/bin/idea.png
+Path=
+Terminal=false
+StartupNotify=false
