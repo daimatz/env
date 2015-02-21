@@ -24,5 +24,18 @@ vagrant box add ubuntu-14-04-x64-virtualbox.box --name ubuntu-1404
 use Ansible.
 
 ```sh
-vagrant provision
+sudo apt-get install ansible sshpass
+vagrant up
+```
+
+then automatically provisions.
+
+If you want to run `ansible-playbook` manually, run:
+
+```sh
+ansible-playbook \
+    --private-key=.vagrant/machines/default/virtualbox/private_key \
+    --user=vagrant \
+    --inventory-file=ansible/hosts \
+    ansible/site.yml
 ```

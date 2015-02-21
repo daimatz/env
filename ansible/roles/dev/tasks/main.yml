@@ -1,0 +1,16 @@
+---
+- name: copy my id_rsa
+  copy: src=~/.ssh/id_rsa dest="{{ ansible_env.HOME }}/.ssh" mode=0600
+
+- name: clone my dotfiles
+  git: repo=git@github.com:daimatz/dotfiles.git accept_hostkey=yes dest="{{ ansible_env.HOME }}/dotfiles" update=no
+
+- name: link dotfiles
+  command: bash "{{ ansible_env.HOME }}/dotfiles/linker.sh" creates="{{ ansible_env.HOME }}/.zsh"
+
+- name: set login shell
+  user: name={{ ansible_env.USER }} shell=/usr/bin/zsh
+  sudo: true
+
+- name: copy .zshrc
+  template: src=dot.zshrc dest="{{ ansible_env.HOME }}/.zshrc"

@@ -45,7 +45,7 @@ Vagrant.configure(2) do |config|
   #
   config.vm.provider "virtualbox" do |vb|
     # Display the VirtualBox GUI when booting the machine
-    vb.gui = true
+    # vb.gui = true
 
     # Customize the amount of memory on the VM:
     vb.memory = "2048"
@@ -68,4 +68,12 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get update
   #   sudo apt-get install -y apache2
   # SHELL
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "ansible/site.yml"
+    ansible.inventory_path = "ansible/hosts"
+    ansible.limit = "all"
+    ansible.extra_vars = { ansible_ssh_pass: "vagrant" }
+    # ansible.ask_vault_pass = true
+  end
 end

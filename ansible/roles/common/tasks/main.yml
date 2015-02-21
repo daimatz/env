@@ -1,0 +1,38 @@
+---
+- name: install base packages
+  apt: pkg={{ item }} state=present
+  with_items:
+    - apt-transport-https
+    - autoconf
+    - bison
+    - build-essential
+    - curl
+    - flex
+    - git
+    - global
+    - jq
+    - language-pack-ja
+    - mercurial
+    - nkf
+    - ntp
+    - realpath
+    - ruby2.0
+    - silversearcher-ag
+    - sqlite
+    - tig
+    - tmux
+    - unzip
+    - vim
+    - wget
+    - wget
+    - zip
+    - zsh
+
+- name: link diff-highlight
+  file: src=/usr/share/git/diff-highlight/diff-highlight dest=/usr/bin/diff-highlight state=link force=true
+
+- name: link git-new-workdir
+  file: src=/usr/share/git/workdir/git-new-workdir path=/usr/bin/git-new-workdir state=link force=true
+
+- name: locale
+  command: update-locale LANG=ja_JP.UTF-8

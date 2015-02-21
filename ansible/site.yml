@@ -1,0 +1,12 @@
+---
+- name: apply common config
+  hosts: all
+  sudo: true
+  roles:
+    - common
+
+- name: development
+  hosts: dev
+  sudo: false
+  roles:
+    - dev
