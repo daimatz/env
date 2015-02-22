@@ -8,5 +8,5 @@
   sudo: true
 
 - name: install maven
-  apt: pkt=maven state=present
+  apt: pkg=maven state=present
   sudo: true
