@@ -12,7 +12,7 @@
   command: mv {{ ansible_env.HOME }}/go {{ ansible_env.HOME }}/.goroot creates={{ goroot }}
 
 - name: get go tools
-  command: "{{ goroot }}/bin/go get {{ item }}"
+  command: "{{ goroot }}/bin/go get {{ item }} creates={{ gopath }}/src/{{ item }}"
   with_items:
     - golang.org/x/tools/cmd/goimports
     - golang.org/x/tools/cmd/godoc
