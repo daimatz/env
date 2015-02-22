@@ -26,6 +26,7 @@ use Ansible.
 ```sh
 sudo apt install python-pip sshpass
 sudo pip install ansible
+echo '192.168.254.254 dev' | sudo tee -a /etc/hosts
 vagrant up
 ```
 
