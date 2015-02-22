@@ -7,6 +7,6 @@
   apt: pkg=openjdk-{{ openjdk_version }}-jdk state=present
   sudo: true
 
-- name: install maven2
-  apt: pkt=maven2 state=present
+- name: install maven
+  apt: pkt=maven state=present
   sudo: true
