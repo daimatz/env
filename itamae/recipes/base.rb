@@ -43,15 +43,12 @@ end
   end
 end
 
-begin
-  link '/etc/localtime' do
-    user 'root'
-    to '/usr/share/zoneinfo/Japan'
-  end
-rescue CommandExecutionError
-  file '/etc/localtime' do
-    user 'root'
-    action :delete
-  end
-  retry
+file '/etc/localtime' do
+  user 'root'
+  action :delete
+  not_if 'test -L /etc/localtime'
+end
+link '/etc/localtime' do
+  user 'root'
+  to '/usr/share/zoneinfo/Japan'
 end
