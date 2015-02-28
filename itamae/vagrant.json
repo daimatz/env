@@ -1,0 +1,6 @@
+{
+  "name": "vagrant",
+  "home": "/home/vagrant",
+  "goroot": "/home/vagrant/.goroot",
+  "gopath": "/home/vagrant"
+}

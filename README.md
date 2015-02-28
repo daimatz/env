@@ -21,23 +21,11 @@ vagrant box add ubuntu-14-04-x64-virtualbox.box --name ubuntu-1404
 
 ## Provisioning
 
-use Ansible.
+use Itame.
 
 ```sh
-sudo apt install python-pip sshpass
-sudo pip install ansible
 echo '192.168.254.254 dev' | sudo tee -a /etc/hosts
 vagrant up
-```
-
-then automatically provisions.
-
-If you want to run `ansible-playbook` manually, run:
-
-```sh
-ansible-playbook \
-    --private-key=.vagrant/machines/default/virtualbox/private_key \
-    --user=vagrant \
-    --inventory-file=ansible/hosts \
-    ansible/site.yml
+gem install itamae
+itamae ssh -h localhost -p 2222 -u vagrant -j itamae/vagrant.json itamae/recipes/*
 ```
