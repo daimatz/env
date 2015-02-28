@@ -1,4 +1,9 @@
 
+execute 'apt update' do
+  user 'root'
+  command 'apt update'
+end
+
 [
   'apt-transport-https',
   'autoconf',
