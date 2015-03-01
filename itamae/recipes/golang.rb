@@ -6,7 +6,6 @@ directory node[:gopath]
 execute "download & unarchive" do
   url = 'http://golang.org/dl/go1.4.2.linux-amd64.tar.gz'
   dir = File.dirname(node[:goroot])
-  user 'root'
   command "curl -L #{url} | tar -xz -C #{dir} && mv #{dir}/go #{node[:goroot]}"
   not_if "test -f #{node[:goroot]}/bin/go"
 end
