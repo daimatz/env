@@ -27,7 +27,6 @@ end
   'unzip',
   'vim',
   'wget',
-  'wget',
   'zip',
   'zsh',
 ].each do |pkg|
