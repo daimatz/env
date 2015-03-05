@@ -41,7 +41,7 @@ end
     user 'root'
     to to
   end
-  file File.basename(to) do
+  file to do
     user 'root'
     mode '755'
   end
