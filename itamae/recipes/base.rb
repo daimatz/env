@@ -12,9 +12,10 @@ end
   'curl',
   'flex',
   'git',
-  'global',
+  # 'global',
   'jq',
   'mercurial',
+  'ncurses-dev',
   'nkf',
   'ntp',
   'realpath',
@@ -55,4 +56,17 @@ end
 link '/etc/localtime' do
   user 'root'
   to '/usr/share/zoneinfo/Japan'
+end
+
+execute 'gnu global' do
+  version = '6.3.4'
+  user 'root'
+  command <<CMD
+cd /tmp
+wget http://tamacom.com/global/global-#{version}.tar.gz
+tar xf global-*
+cd global-*
+./configure && make && make install
+CMD
+  not_if 'which global'
 end
