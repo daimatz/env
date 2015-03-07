@@ -14,8 +14,9 @@ end
   'git',
   # 'global',
   'jq',
+  'libevent-dev',
+  'libncurses5-dev',
   'mercurial',
-  'ncurses-dev',
   'nkf',
   'ntp',
   'realpath',
@@ -23,8 +24,8 @@ end
   'silversearcher-ag',
   'software-properties-common',
   'sqlite',
-  'tig',
-  'tmux',
+  # 'tig',
+  # 'tmux',
   'unzip',
   'vim',
   'wget',
@@ -60,13 +61,54 @@ end
 
 execute 'gnu global' do
   version = '6.3.4'
-  user 'root'
-  command <<CMD
-cd /tmp
-wget http://tamacom.com/global/global-#{version}.tar.gz
-tar xf global-*
-cd global-*
-./configure && make && make install
-CMD
+  dir = "global-#{version}"
+  tgz = "#{dir}.tar.gz"
+  url = "http://tamacom.com/global/#{tgz}"
+
   not_if 'which global'
+
+  user 'root'
+  command <<-CMD
+cd /tmp
+wget #{url} -O #{tgz}
+tar xf #{tgz}
+cd #{dir}
+./configure && make && make install
+  CMD
+end
+
+execute 'tig' do
+  version = '2.0.3'
+  dir = "tig-#{version}"
+  tgz = "#{dir}.tar.gz"
+  url = "http://jonas.nitro.dk/tig/releases/#{tgz}"
+
+  not_if 'which tig'
+
+  user 'root'
+  command <<-CMD
+cd /tmp
+wget #{url} -O #{tgz}
+tar xf #{tgz}
+cd #{dir}
+./configure && make && make install
+  CMD
+end
+
+execute 'tmux' do
+  version = '1.9a'
+  dir = "tmux-#{version}"
+  tgz = "#{dir}.tar.gz"
+  url = "http://downloads.sourceforge.net/project/tmux/tmux/tmux-1.9/#{tgz}"
+
+  not_if 'which tmux'
+
+  user 'root'
+  command <<-CMD
+cd /tmp
+wget #{url} -O #{tgz}
+tar xf #{tgz}
+cd #{dir}
+./configure && make && make install
+  CMD
 end
