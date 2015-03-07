@@ -43,9 +43,10 @@ end
     user 'root'
     to to
   end
-  file to do
+  execute "make executable #{to}" do
     user 'root'
-    mode '755'
+    command "chmod +x #{to}"
+    not_if "test -x #{to}"
   end
 end
 
