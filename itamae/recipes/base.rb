@@ -60,6 +60,12 @@ link '/etc/localtime' do
   to '/usr/share/zoneinfo/Japan'
 end
 
+execute 'vboxvideo' do
+  user 'root'
+  command 'echo vboxvideo >> /etc/modules'
+  not_if 'grep vboxvideo /etc/modules'
+end
+
 execute 'gnu global' do
   version = '6.3.4'
   dir = "global-#{version}"
