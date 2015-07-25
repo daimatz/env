@@ -46,15 +46,16 @@ Vagrant.configure(2) do |config|
   # Example for VirtualBox:
   #
   config.vm.provider "virtualbox" do |vb|
-    # Display the VirtualBox GUI when booting the machine
-    vb.gui = true
-
-    # Customize the amount of memory on the VM:
-    vb.memory = "4096"
-
     vb.cpus = 2
-    vb.customize ["modifyvm", :id, "--vram", "256"]
-    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+
+    if ENV['VAGRANT_GUI'] && (ENV['VAGRANT_GUI'] =~ /(true|t|yes|y|1)$/i) != nil
+      vb.gui = true
+      vb.memory = "4096"
+      vb.customize ["modifyvm", :id, "--vram", "256"]
+      vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+    else
+      vb.memory = "1024"
+    end
   end
   #
   # View the documentation for the provider you are using for more
