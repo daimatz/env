@@ -7,3 +7,4 @@ export GOPATH=~
 export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 [[ ! -z "`psg .ntp.sh`" ]] && nohup bash .ntpd.sh &> /dev/null &
+function pbcopy() { cat /dev/stdin > /vagrant/.copyfile }
