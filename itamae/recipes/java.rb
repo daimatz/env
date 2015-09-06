@@ -13,3 +13,5 @@ end
 ].each do |pkg|
   package pkg
 end
+
+include_recipe 'chown.rb'

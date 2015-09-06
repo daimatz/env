@@ -22,5 +22,7 @@ end
   execute "go get #{pkg}" do
     command "GOROOT=#{node[:goroot]} GOPATH=#{node[:gopath]} #{node[:goroot]}/bin/go get #{pkg}"
     not_if "test -d #{node[:gopath]}/src/#{pkg}"
-   end
+  end
 end
+
+include_recipe 'chown.rb'

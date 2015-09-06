@@ -1,0 +1,6 @@
+{
+  "name": "ubuntu",
+  "home": "/home/ubuntu",
+  "goroot": "/home/ubuntu/.goroot",
+  "gopath": "/home/ubuntu"
+}

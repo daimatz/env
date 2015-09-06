@@ -50,6 +50,11 @@ end
   end
 end
 
+execute 'localedef' do
+  user 'root'
+  command 'localedef -f UTF-8 -i ja_JP ja_JP.UTF-8'
+end
+
 file '/etc/localtime' do
   user 'root'
   action :delete
@@ -119,3 +124,5 @@ cd #{dir}
 ./configure && make && make install
   CMD
 end
+
+include_recipe 'chown.rb'

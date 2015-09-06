@@ -34,3 +34,5 @@ end
     source "../templates/dot#{sh}"
   end
 end
+
+include_recipe 'chown.rb'

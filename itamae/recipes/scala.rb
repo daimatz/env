@@ -22,3 +22,5 @@ end
     not_if "which #{cmd}"
   end
 end
+
+include_recipe 'chown.rb'

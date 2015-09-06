@@ -13,3 +13,5 @@ execute "download & unarchive" do
   command "curl -L #{url} | tar -xz -C #{node[:home]} && mv #{node[:home]}/idea-IC-* #{node[:home]}/intellij"
   not_if "test -d #{node[:home]}/intellij"
 end
+
+include_recipe 'chown.rb'

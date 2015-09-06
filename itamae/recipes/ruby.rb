@@ -14,3 +14,5 @@ end
     not_if "gem list | grep #{gem}"
   end
 end
+
+include_recipe 'chown.rb'
