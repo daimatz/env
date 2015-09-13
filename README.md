@@ -2,13 +2,14 @@
 
 create my development environment.
 
-## Requirements
+## Local Environment
+
+### Requirements
 
 - Virtualbox
 - Vagrant
-- Ansible
 
-## Packer template
+### Packer template
 
 use [shiguredo/packer-templates](https://github.com/shiguredo/packer-templates).
 
@@ -19,13 +20,13 @@ packer build -only=virtualbox-iso template.json
 vagrant box add ubuntu-14-04-x64-virtualbox.box --name ubuntu-1404
 ```
 
-## Provisioning
+### Provisioning
 
 use Itame.
 
 ```sh
 echo '192.168.254.254 dev' | sudo tee -a /etc/hosts
 vagrant up
-gem install itamae
-itamae ssh -h localhost -p 2222 -u vagrant -j itamae/vagrant.json itamae/recipes/*
+bundle install --path vendor/bundler
+bundle exec itamae ssh -h localhost -p 2222 -u vagrant -j itamae/vagrant.json itamae/recipes/*
 ```
