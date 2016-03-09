@@ -4,10 +4,18 @@ include_recipe 'base.rb'
 directory node[:gopath]
 
 execute "download & unarchive" do
-  url = 'https://storage.googleapis.com/golang/go1.5.1.linux-amd64.tar.gz'
+  url = 'http://golang.org/dl/go1.6.linux-amd64.tar.gz'
   dir = File.dirname(node[:goroot])
   command "curl -L #{url} | tar -xz -C #{dir} && mv #{dir}/go #{node[:goroot]}"
   not_if "test -f #{node[:goroot]}/bin/go"
+end
+
+execute "for building go" do
+  go14 = "#{node[:home]}/go1.4"
+  url = 'http://golang.org/dl/go1.4.linux-amd64.tar.gz'
+  dir = File.dirname(go14)
+  command "curl -L #{url} | tar -xz -C #{dir} && mv #{dir}/go #{go14}"
+  not_if "test -f #{go14}/bin/go"
 end
 
 [
