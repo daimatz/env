@@ -108,10 +108,10 @@ cd #{dir}
 end
 
 execute 'tmux' do
-  version = '1.9a'
+  version = '2.2'
   dir = "tmux-#{version}"
   tgz = "#{dir}.tar.gz"
-  url = "http://downloads.sourceforge.net/project/tmux/tmux/tmux-1.9/#{tgz}"
+  url = "https://github.com/tmux/tmux/releases/download/#{version}/#{tgz}"
 
   not_if 'which tmux'
 
