@@ -6,14 +6,13 @@ include_recipe 'java.rb'
   'libjansi-java',
   'libjansi-native-java',
   'libhawtjni-runtime-java',
-
 ].each do |pkg|
   package pkg
 end
 
 {
-  scala: 'http://www.scala-lang.org/files/archive/scala-2.10.4.deb',
-  sbt: 'http://dl.bintray.com/sbt/debian/sbt-0.13.6.deb',
+  scala: 'http://www.scala-lang.org/files/archive/scala-2.11.8.deb',
+  sbt: 'http://dl.bintray.com/sbt/debian/sbt-0.13.11.deb',
 }.each do |cmd, url|
   base = File.basename(url)
   execute "install #{base}" do
