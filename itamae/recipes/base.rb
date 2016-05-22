@@ -17,10 +17,11 @@ end
   'libevent-dev',
   'libncurses5-dev',
   'mercurial',
+  'mosh',
   'nkf',
   'ntp',
   'realpath',
-  'ruby2.0',
+  'ruby',
   'silversearcher-ag',
   'software-properties-common',
   'sqlite',
@@ -122,6 +123,14 @@ wget #{url} -O #{tgz}
 tar xf #{tgz}
 cd #{dir}
 ./configure && make && make install
+  CMD
+end
+
+execute 'firewall' do
+  user 'root'
+  command <<-CMD
+ufw allow ssh
+ufs enable
   CMD
 end
 
