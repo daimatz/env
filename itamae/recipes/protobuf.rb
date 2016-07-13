@@ -16,5 +16,6 @@ wget #{url} -O #{tgz}
 tar xf #{tgz}
 cd #{dir}
 ./configure && make && make install
+ldconfig
   CMD
 end
