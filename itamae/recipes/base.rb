@@ -59,7 +59,6 @@ end
 file '/etc/localtime' do
   user 'root'
   action :delete
-  not_if 'test -L /etc/localtime'
 end
 link '/etc/localtime' do
   user 'root'
@@ -130,7 +129,7 @@ execute 'firewall' do
   user 'root'
   command <<-CMD
 ufw allow ssh
-ufs enable
+ufw enable
   CMD
 end
 

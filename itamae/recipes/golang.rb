@@ -26,6 +26,8 @@ end
   'github.com/nsf/gocode',
   'github.com/lestrrat/peco/cmd/peco',
   'github.com/motemen/ghq',
+  'github.com/golang/protobuf/proto',
+  'github.com/golang/protobuf/protoc-gen-go',
 ].each do |pkg|
   execute "go get #{pkg}" do
     command "GOROOT=#{node[:goroot]} GOPATH=#{node[:gopath]} #{node[:goroot]}/bin/go get #{pkg}"
