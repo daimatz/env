@@ -19,7 +19,7 @@ execute "for building go" do
 end
 
 [
-  'github.com/peco/peco',
+  'github.com/peco/peco/cmd/peco',
   'github.com/motemen/ghq',
   'github.com/golang/protobuf/proto',
   'github.com/golang/protobuf/protoc-gen-go',
