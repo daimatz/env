@@ -129,7 +129,7 @@ execute 'firewall' do
   user 'root'
   command <<-CMD
 ufw allow ssh
-ufw enable
+yes y | ufw enable
   CMD
 end
 

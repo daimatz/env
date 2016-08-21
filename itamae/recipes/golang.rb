@@ -4,7 +4,7 @@ include_recipe 'base.rb'
 directory node[:gopath]
 
 execute "download & unarchive" do
-  url = 'http://golang.org/dl/go1.6.linux-amd64.tar.gz'
+  url = 'http://golang.org/dl/go1.7.linux-amd64.tar.gz'
   dir = File.dirname(node[:goroot])
   command "curl -L #{url} | tar -xz -C #{dir} && mv #{dir}/go #{node[:goroot]}"
   not_if "test -f #{node[:goroot]}/bin/go"
@@ -19,12 +19,7 @@ execute "for building go" do
 end
 
 [
-  'golang.org/x/tools/cmd/goimports',
-  'golang.org/x/tools/cmd/godoc',
-  'golang.org/x/tools/cmd/vet',
-  'golang.org/x/tools/cmd/cover',
-  'github.com/nsf/gocode',
-  'github.com/lestrrat/peco/cmd/peco',
+  'github.com/peco/peco',
   'github.com/motemen/ghq',
   'github.com/golang/protobuf/proto',
   'github.com/golang/protobuf/protoc-gen-go',
