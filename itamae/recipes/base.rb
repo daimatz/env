@@ -10,6 +10,7 @@ end
   'bison',
   'build-essential',
   'curl',
+  'exuberant-ctags',
   'flex',
   'git',
   # 'global',
@@ -20,6 +21,7 @@ end
   'mosh',
   'nkf',
   'ntp',
+  'python-pip',
   'realpath',
   'ruby',
   'silversearcher-ag',
@@ -72,7 +74,7 @@ execute 'vboxvideo' do
 end
 
 execute 'gnu global' do
-  version = '6.3.4'
+  version = '6.5.5'
   dir = "global-#{version}"
   tgz = "#{dir}.tar.gz"
   url = "http://tamacom.com/global/#{tgz}"
@@ -81,6 +83,7 @@ execute 'gnu global' do
 
   user 'root'
   command <<-CMD
+sudo pip install Pygments
 cd /tmp
 wget #{url} -O #{tgz}
 tar xf #{tgz}
