@@ -1,16 +1,22 @@
 
 include_recipe 'base.rb'
 
-template "#{node[:home]}/.ssh/id_rsa" do
-  user node[:name]
-  source "~/.ssh/id_rsa"
-  mode "600"
-end
+# template "#{node[:home]}/.ssh/id_rsa" do
+#   user node[:name]
+#   source "~/.ssh/id_rsa"
+#   mode "600"
+# end
 
 git "#{node[:home]}/dotfiles" do
   user node[:name]
   # repository "git@github.com:daimatz/dotfiles.git"
   repository "https://github.com/daimatz/dotfiles.git"
+end
+
+execute "authorized_keys" do
+  user node[:name]
+  command "curl -sL https://github.com/daimatz.keys > ~/.ssh/authorized_keys"
+  not_if "test -f #{node[:home]}/.ssh/authorized_keys"
 end
 
 execute "link dotfiles" do
