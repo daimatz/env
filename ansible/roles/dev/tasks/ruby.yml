@@ -1,7 +1,0 @@
----
-- name: install gem libraries
-  gem: name={{ item }} state=present
-  with_items:
-    - bundler
-    - pry
-    - rspec
