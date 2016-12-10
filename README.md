@@ -27,6 +27,7 @@ use Itame.
 ```sh
 echo '192.168.254.254 dev' | sudo tee -a /etc/hosts
 vagrant up
-bundle install --path vendor/bundler
-bundle exec itamae ssh -h localhost -p 2222 -u vagrant -j itamae/vagrant.json itamae/recipes/*
+wget https://github.com/k0kubun/mitamae/releases/download/v1.1.2/mitamae-* -O mitamae
+chmod +x mitamae
+./mitamae ssh -h localhost -p 2222 -u vagrant -j itamae/vagrant.json itamae/recipes/*
 ```
