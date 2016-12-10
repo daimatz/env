@@ -7,7 +7,7 @@ end
 
 execute 'sudo without password' do
   user 'root'
-  command "echo '#{node[:name]} ALL=NOPASSWD:ALL' >> /etc/sudoers"
+  command "echo '#{node[:name]} ALL=(ALL:ALL)NOPASSWD:ALL' >> /etc/sudoers"
   not_if "grep -E ^#{node[:name]} /etc/sudoers"
 end
 

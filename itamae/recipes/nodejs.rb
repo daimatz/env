@@ -3,17 +3,17 @@ include_recipe 'base.rb'
 
 execute 'install nodebrew' do
   user node[:name]
-  command 'curl -L git.io/nodebrew | perl - setup'
+  command 'curl -sL git.io/nodebrew | perl - setup'
   not_if 'which nodebrew'
 end
 
 execute 'install nodejs' do
-  version = '4.4.3'
+  version = '6.9.2'
   user node[:name]
   command <<-CMD
-/home/dai/.nodebrew/current/bin/nodebrew install-binary #{version}
-/home/dai/.nodebrew/current/bin/nodebrew use #{version}
-/home/dai/.nodebrew/current/bin/nodebrew alias default #{version}
+#{node[:home]}/.nodebrew/current/bin/nodebrew install-binary #{version}
+#{node[:home]}/.nodebrew/current/bin/nodebrew use #{version}
+#{node[:home]}/.nodebrew/current/bin/nodebrew alias default #{version}
   CMD
 end
 
