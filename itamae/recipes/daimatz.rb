@@ -31,6 +31,8 @@ execute "set login shell" do
   not_if "cat /etc/passwd | grep #{node[:name]} | grep zsh"
 end
 
+include_recipe 'chown.rb'
+
 [
   '.ntpd.sh',
   '.zshrc',
