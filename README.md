@@ -22,12 +22,13 @@ vagrant box add ubuntu-14-04-x64-virtualbox.box --name ubuntu-1404
 
 ### Provisioning
 
-use Itame.
+use MItame.
+https://github.com/k0kubun/mitamae
 
 ```sh
 echo '192.168.254.254 dev' | sudo tee -a /etc/hosts
 vagrant up
-wget https://github.com/k0kubun/mitamae/releases/download/v1.1.2/mitamae-* -O mitamae
+wget https://github.com/k0kubun/mitamae/releases/download/v*.*.*/mitamae-* -O mitamae
 chmod +x mitamae
-./mitamae ssh -h localhost -p 2222 -u vagrant -j itamae/vagrant.json itamae/recipes/*
+./mitamae local -j itamae/vagrant.json itamae/recipes/*
 ```
