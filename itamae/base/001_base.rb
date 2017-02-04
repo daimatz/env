@@ -139,5 +139,3 @@ ufw limit 60000:60030/udp
 yes y | ufw enable
   CMD
 end
-
-include_recipe 'chown.rb'

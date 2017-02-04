@@ -1,6 +1,3 @@
-
-include_recipe 'base.rb'
-
 directory node[:gopath]
 
 execute "download & unarchive" do
@@ -29,5 +26,3 @@ end
     not_if "test -d #{node[:gopath]}/src/#{pkg}"
   end
 end
-
-include_recipe 'chown.rb'

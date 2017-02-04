@@ -2,25 +2,7 @@
 
 create my development environment.
 
-## Local Environment
-
-### Requirements
-
-- Virtualbox
-- Vagrant
-
-### Packer template
-
-use [shiguredo/packer-templates](https://github.com/shiguredo/packer-templates).
-
-```sh
-git clone https://github.com/shiguredo/packer-templates.git
-cd packer-templates/ubuntu-14.04
-packer build -only=virtualbox-iso template.json
-vagrant box add ubuntu-14-04-x64-virtualbox.box --name ubuntu-1404
-```
-
-### Provisioning
+## Provisioning
 
 use MItame.
 https://github.com/k0kubun/mitamae
@@ -30,5 +12,5 @@ echo '192.168.254.254 dev' | sudo tee -a /etc/hosts
 vagrant up
 wget https://github.com/k0kubun/mitamae/releases/download/v*.*.*/mitamae-* -O mitamae
 chmod +x mitamae
-./mitamae local -j itamae/vagrant.json itamae/recipes/*
+./mitamae local -j itamae/vagrant.json itamae/base/*
 ```

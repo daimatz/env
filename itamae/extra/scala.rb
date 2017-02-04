@@ -1,7 +1,3 @@
-
-include_recipe 'base.rb'
-include_recipe 'java.rb'
-
 [
   'libjansi-java',
   'libjansi-native-java',
@@ -21,5 +17,3 @@ end
     not_if "which #{cmd}"
   end
 end
-
-include_recipe 'chown.rb'

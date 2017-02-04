@@ -1,6 +1,3 @@
-
-include_recipe 'base.rb'
-
 execute 'protobuf' do
   version = '2.6.1'
   dir = "protobuf-#{version}"

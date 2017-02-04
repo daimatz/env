@@ -1,6 +1,3 @@
-
-include_recipe 'base.rb'
-
 # template "#{node[:home]}/.ssh/id_rsa" do
 #   user node[:name]
 #   source "~/.ssh/id_rsa"
@@ -31,8 +28,6 @@ execute "set login shell" do
   not_if "cat /etc/passwd | grep #{node[:name]} | grep zsh"
 end
 
-include_recipe 'chown.rb'
-
 [
   '.ntpd.sh',
   '.zshrc',
@@ -42,5 +37,3 @@ include_recipe 'chown.rb'
     source "../templates/dot#{sh}"
   end
 end
-
-include_recipe 'chown.rb'

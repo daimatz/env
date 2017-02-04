@@ -1,6 +1,3 @@
-
-include_recipe 'base.rb'
-
 [
   'xfce4',
   'fonts-vlgothic',

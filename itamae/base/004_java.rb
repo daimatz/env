@@ -1,6 +1,3 @@
-
-include_recipe 'base.rb'
-
 execute 'add apt repository' do
   user 'root'
   command 'add-apt-repository -y ppa:openjdk-r/ppa && apt update'
@@ -13,5 +10,3 @@ end
 ].each do |pkg|
   package pkg
 end
-
-include_recipe 'chown.rb'

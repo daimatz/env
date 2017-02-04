@@ -1,6 +1,3 @@
-
-include_recipe 'base.rb'
-
 execute 'install nodebrew' do
   user node[:name]
   command 'curl -sL git.io/nodebrew | perl - setup'
@@ -16,5 +13,3 @@ execute 'install nodejs' do
 #{node[:home]}/.nodebrew/current/bin/nodebrew alias default #{version}
   CMD
 end
-
-include_recipe 'chown.rb'
