@@ -38,7 +38,7 @@ include_recipe 'chown.rb'
   '.zshrc',
 ].each do |sh|
   template "#{node[:home]}/#{sh}" do
-    user node[:name]
+    user 'root'
     source "../templates/dot#{sh}"
   end
 end
