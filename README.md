@@ -8,11 +8,8 @@ use MItame.
 https://github.com/k0kubun/mitamae
 
 ```sh
-wget https://github.com/k0kubun/mitamae/releases/download/v*.*.*/mitamae-* -O mitamae
+wget https://github.com/k0kubun/mitamae/releases/download/v*.*.*/mitamae-x86_64-linux -O mitamae
 chmod +x mitamae
-./mitamae local -j itamae/vagrant.json itamae/base/*
+./mitamae local -j itamae/dai.json itamae/adduser.rb
+./mitamae local -j itamae/dai.json itamae/base/*
 ```
-
-## for VMware Fusion
-
-[VMware Tools for Linux Guests](https://www.vmware.com/support/ws55/doc/ws_newguest_tools_linux.html#wp1127177)
