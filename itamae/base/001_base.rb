@@ -113,7 +113,7 @@ cd #{dir}
 end
 
 execute 'tmux' do
-  version = '2.2'
+  version = '2.5'
   dir = "tmux-#{version}"
   tgz = "#{dir}.tar.gz"
   url = "https://github.com/tmux/tmux/releases/download/#{version}/#{tgz}"
