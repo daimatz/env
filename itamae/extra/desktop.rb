@@ -1,4 +1,5 @@
 [
+  'xorg',
   'xfce4',
   'fonts-vlgothic',
   'xserver-xorg-legacy',
