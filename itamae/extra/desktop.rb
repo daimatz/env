@@ -1,6 +1,7 @@
 [
   'xorg',
   'xfce4',
+  'xfce4-terminal',
   'fonts-vlgothic',
   'xserver-xorg-legacy',
 ].each do |pkg|
