@@ -5,7 +5,7 @@ execute 'install nodebrew' do
 end
 
 execute 'install nodejs' do
-  version = '6.9.2'
+  version = '8.10.0'
   user node[:name]
   command <<-CMD
 #{node[:home]}/.nodebrew/current/bin/nodebrew install-binary #{version}
