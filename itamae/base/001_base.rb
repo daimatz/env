@@ -26,7 +26,6 @@ end
   'ntp',
   'openssl',
   'python-pip',
-  'realpath',
   'ruby',
   'silversearcher-ag',
   'software-properties-common',
