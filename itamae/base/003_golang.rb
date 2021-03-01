@@ -1,7 +1,7 @@
 directory node[:gopath]
 
 execute "download & unarchive" do
-  url = 'https://dl.google.com/go/go1.14.linux-arm64.tar.gz'
+  url = 'https://dl.google.com/go/go1.14.linux-amd64.tar.gz'
   dir = File.dirname(node[:goroot])
   command "curl -L #{url} | tar -xz -C #{dir} && mv #{dir}/go #{node[:goroot]}"
   not_if "test -f #{node[:goroot]}/bin/go"
@@ -15,9 +15,10 @@ execute "for building go" do
   not_if "test -f #{go14}/bin/go"
 end
 
+package 'peco'
+
 [
-  'github.com/peco/peco/cmd/peco',
-  'github.com/motemen/ghq',
+  'github.com/x-motemen/ghq',
   'github.com/golang/protobuf/proto',
   'github.com/golang/protobuf/protoc-gen-go',
 ].each do |pkg|
