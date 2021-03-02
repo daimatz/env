@@ -14,6 +14,7 @@ end
   'flex',
   'git',
   'jq',
+  'language-pack-ja',
   'libevent-dev',
   'liblzo2-dev',
   'libncurses5-dev',
