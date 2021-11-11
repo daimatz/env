@@ -26,6 +26,7 @@ end
   'nkf',
   'ntp',
   'openssl',
+  'protobuf-compiler',
   'python3-pip',
   'ruby',
   'silversearcher-ag',
