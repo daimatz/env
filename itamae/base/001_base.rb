@@ -26,7 +26,7 @@ end
   'nkf',
   'ntp',
   'openssl',
-  'python-pip',
+  'python3-pip',
   'ruby',
   'silversearcher-ag',
   'software-properties-common',
@@ -95,10 +95,10 @@ cd #{dir}
 end
 
 execute 'tig' do
-  version = '2.0.3'
+  version = '2.5.4'
   dir = "tig-#{version}"
   tgz = "#{dir}.tar.gz"
-  url = "http://jonas.nitro.dk/tig/releases/#{tgz}"
+  url = "https://github.com/jonas/tig/releases/download/#{dir}/#{tgz}"
 
   not_if 'which tig'
 
