@@ -77,7 +77,7 @@ execute 'vboxvideo' do
 end
 
 execute 'gnu global' do
-  version = '6.5.5'
+  version = '6.6.9'
   dir = "global-#{version}"
   tgz = "#{dir}.tar.gz"
   url = "http://tamacom.com/global/#{tgz}"
