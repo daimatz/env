@@ -77,10 +77,10 @@ execute 'vboxvideo' do
 end
 
 execute 'gnu global' do
-  version = '6.6.9'
+  version = '6.6.13'
   dir = "global-#{version}"
   tgz = "#{dir}.tar.gz"
-  url = "http://tamacom.com/global/#{tgz}"
+  url = "https://ftp.gnu.org/pub/gnu/global/#{tgz}"
 
   not_if 'which global'
 
