@@ -31,7 +31,7 @@ end
   'ruby',
   'silversearcher-ag',
   'software-properties-common',
-  'sqlite',
+  'sqlite3',
   'unzip',
   'vim',
   'wget',
