@@ -24,7 +24,6 @@ end
   'mercurial',
   'mosh',
   'nkf',
-  'ntp',
   'openssl',
   'protobuf-compiler',
   'python3-pip',
@@ -39,21 +38,6 @@ end
   'zsh',
 ].each do |pkg|
   package pkg
-end
-
-{
-  '/usr/bin/diff-highlight' => '/usr/share/doc/git/contrib/diff-highlight/diff-highlight',
-  '/usr/bin/git-new-workdir' => '/usr/share/doc/git/contrib/workdir/git-new-workdir',
-}.each do |from, to|
-  link from do
-    user 'root'
-    to to
-  end
-  execute "make executable #{to}" do
-    user 'root'
-    command "chmod +x #{to}"
-    not_if "test -x #{to}"
-  end
 end
 
 execute 'localedef' do
@@ -114,7 +98,7 @@ cd #{dir}
 end
 
 execute 'tmux' do
-  version = '2.5'
+  version = '3.6a'
   dir = "tmux-#{version}"
   tgz = "#{dir}.tar.gz"
   url = "https://github.com/tmux/tmux/releases/download/#{version}/#{tgz}"
