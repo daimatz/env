@@ -31,6 +31,7 @@ end
   'silversearcher-ag',
   'software-properties-common',
   'sqlite3',
+  'ufw',
   'unzip',
   'vim',
   'wget',
