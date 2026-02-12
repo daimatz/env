@@ -1,7 +1,7 @@
 directory node[:gopath]
 
 execute "download & unarchive" do
-  arch_uname = if `uname -m`.strip == 'aarch64' then 'aarch64' else 'amd64' end
+  arch_uname = if `uname -m`.strip == 'aarch64' then 'arm64' else 'amd64' end
   url = "https://dl.google.com/go/go1.26.0.linux-#{arch_uname}.tar.gz"
   dir = File.dirname(node[:goroot])
   command "curl -L #{url} | tar -xz -C #{dir} && mv #{dir}/go #{node[:goroot]}"
