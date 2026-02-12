@@ -13,6 +13,7 @@ wget https://github.com/k0kubun/mitamae/releases/download/$v/mitamae-x86_64-linu
 chmod +x mitamae
 ./mitamae local -j itamae/dai.json itamae/adduser.rb
 ./mitamae local -j itamae/dai.json itamae/base/*
+./mitamae local -j itamae/dai.json itamae/network/*
 ```
 
 ## SSH forwarding
