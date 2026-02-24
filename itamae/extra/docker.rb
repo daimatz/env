@@ -17,6 +17,9 @@ EOF
 apt update
 
 apt install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+usermod -aG docker #{node[:name]}
+newgrp docker
   CMD
   not_if 'which docker'
 end
