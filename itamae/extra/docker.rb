@@ -1,4 +1,4 @@
-execute 'install nodebrew' do
+execute 'install docker' do
   command <<-CMD
 apt update
 apt install ca-certificates curl
