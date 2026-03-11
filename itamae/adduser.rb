@@ -18,6 +18,7 @@ directory 'add ssh dir' do
   mode "700"
   owner node[:name]
   group node[:name]
+  not_if "ls #{node[:home]}/.ssh"
 end
 
 execute 'add ssh keys' do
