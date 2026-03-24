@@ -26,7 +26,7 @@ end
   'nkf',
   'openssl',
   'protobuf-compiler',
-  'python3-pip',
+  'python3-venv',
   'ruby',
   'silversearcher-ag',
   'software-properties-common',
