@@ -33,7 +33,6 @@ end
   'sqlite3',
   'ufw',
   'unzip',
-  'vim',
   'wget',
   'zip',
   'zsh',
@@ -55,28 +54,26 @@ link '/etc/localtime' do
   to '/usr/share/zoneinfo/Japan'
 end
 
-execute 'vboxvideo' do
-  user 'root'
-  command 'echo vboxvideo >> /etc/modules'
-  not_if 'grep vboxvideo /etc/modules'
-end
-
-execute 'gnu global' do
-  version = '6.6.13'
-  dir = "global-#{version}"
+execute 'nvim' do
+  arch = `uname -m`.strip
+  case arch
+  when "x86_64"
+    arch = "x86_64"
+  when "aarch64", "arm64"
+    arch = "arm64"
+  end
+  dir = "nvim-linux-#{arch}"
   tgz = "#{dir}.tar.gz"
-  url = "https://ftp.gnu.org/pub/gnu/global/#{tgz}"
+  url = "https://github.com/neovim/neovim/releases/latest/download/#{tgz}"
 
-  not_if 'which global'
+  not_if 'which nvim'
 
   user 'root'
   command <<-CMD
-sudo pip install Pygments
 cd /tmp
 wget #{url} -O #{tgz}
 tar xf #{tgz}
-cd #{dir}
-./configure && make && make install
+cp -a #{dir}/. /usr/local/
   CMD
 end
 
