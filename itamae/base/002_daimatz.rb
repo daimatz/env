@@ -29,7 +29,6 @@ execute "set login shell" do
 end
 
 [
-  '.ntpd.sh',
   '.zshrc',
 ].each do |sh|
   template "#{node[:home]}/#{sh}" do
